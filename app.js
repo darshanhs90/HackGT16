@@ -6,7 +6,7 @@ var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
 var ejs=require("ejs");
-
+var Yelp = require('yelp');
 
 
 //setup the server paths
@@ -16,6 +16,13 @@ app.set('views', __dirname + '/views');
 app.engine('html', ejs.renderFile);
 app.use( bodyParser.json() );
 
+var yelp = new Yelp({
+  consumer_key: 'consumer-key',
+  consumer_secret: 'consumer-secret',
+  token: 'token',
+  token_secret: 'token-secret',
+});
+
 //declare variables
 
 
@@ -24,8 +31,16 @@ app.listen(8081, '0.0.0.0', function() {
 	console.log("server starting on 8081");
 });
 
-app.get('/distinctCities', function(req, res) {
+app.get('/yelpSearch', function(req, res) {
    
+    // See http://www.yelp.com/developers/documentation/v2/search_api
+    yelp.search({ term: 'food', location: 'Montreal' })
+    .then(function (data) {
+      console.log(data);
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
 });
 
 app.post('/getUtilization1', function(req, res) {
