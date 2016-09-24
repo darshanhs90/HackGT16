@@ -32,7 +32,7 @@ var yelp = new Yelp({
 
 
 //start the server
-app.listen(8081, '0.0.0.0', function() {
+app.listen(8082, '0.0.0.0', function() {
 	console.log("server starting on 8081");
 });
 
@@ -111,4 +111,24 @@ function generateRandomPoints(center, radius, count) {
 }
 
 
+app.post('/transferAmount',function(req,res){
+    var requestBody=req.body;
+    var body={
+      "medium": "balance",
+      "payee_id": "string",
+      "amount": 0.01,
+      "transaction_date": "2016-09-24",
+      "description": "string"
+    };
+    body.payee_id=requestBody.payee;
+    body.amount=requestBody.amount;
+    var mainCustomerId="57e6e4ccdbd8355714612575";
+    var query="http://api.reimaginebanking.com/accounts/";
+    request('http://www.google.com',{body:body}, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log(body) // Show the HTML for the Google homepage. 
+      }
+    })
 
+
+})
