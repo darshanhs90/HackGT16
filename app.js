@@ -28,7 +28,7 @@ app.listen(8082, '0.0.0.0', function() {
 app.get('/yelpSearch', function(req, res) {
 
     var location=req.query.location!=undefined?req.query.location:'McCallum blvd,dallas,texas';
-    var type=req.query.type!=undefined?req.query.type:'food';
+    var type=req.query.type!=undefined?req.query.type+' food':'food';
     yelp.search({ term: type, location: location })
     .then(function (data) {
       res.send(data.businesses);
@@ -42,7 +42,9 @@ app.get('/yelpSearch', function(req, res) {
 app.get('/googleSearch', function(req, res) {
 
     var location=req.query.location!=undefined?req.query.location:'Atlanta';
-    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query=places+of+interest+in+"+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
+    var type=req.query.type!=undefined?req.query.type:'1';
+    type=(type=='1')?'Fun':'Historic';
+    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+"places+of+interest+in+"+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         res.send(body.results);
@@ -52,13 +54,14 @@ app.get('/googleSearch', function(req, res) {
 });
 app.get('/getListOfAtms', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
-    var lat=req.query.lat!=undefined?req.query.lat:'38.9283';
-    var lng=req.query.lng!=undefined?req.query.lng:'-77.1753';
+    var lat=req.query.lat;
+    var lng=req.query.lng;
 
     var url="http://api.reimaginebanking.com/atms?lat="+lat+"&lng="+lng+"&rad=1&key=2dda58a2b24190db59957e4804090953";
+    console.log(url);
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        res.send(body.data);
+        res.send(JSON.parse(body).data);
         res.end();
       }
     })
@@ -100,6 +103,7 @@ function generateRandomPoints(center, radius, count) {
 }
 
 
+
 app.post('/transferAmount',function(req,res){
     var requestBody=req.body;
     var body={
@@ -121,3 +125,4 @@ app.post('/transferAmount',function(req,res){
 
 
 })
+//google maps https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU&key=AIzaSyDlBRNWsTKZK81VHB_CZG8mWsnDeYJCEH8

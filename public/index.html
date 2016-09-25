@@ -7,6 +7,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="assets/js/appcontroller.js"></script>
 		<!--[if lte IE 8]>
 		<link rel="stylesheet" href="assets/css/ie8.css" />
 		<![endif]-->
@@ -21,7 +22,7 @@
 				<div class="content">
 					<header>
 						<h2><a href="#">LetsWanderNessie</a></h2>
-						<p>Let me plan you a surprise!</p>
+						<p>Let me plan you a surprise!{{dest}}</p>
 						<p><input id="autocomplete" ng-change="getPlace()" ng-model="dest" placeholder="Enter Destination" type="text"></input></p>
 					</header>
 					<span class="image"><img src="images/nessie.png" alt="" /></span>
@@ -67,7 +68,7 @@
 								<h2>Lunch?</h2>
 								<div class="form-group">
 									<label for="sel1">Select Cuisine:</label>
-									<select class="form-control" id="sel1">
+									<select class="form-control" name="singleSelect" id="singleSelect" ng-model="selectedLunch" ng-change="getLunchCuisine()">
 										<option>American</option>
 										<option>Chinese</option>
 										<option>Indian</option>
@@ -86,7 +87,7 @@
 								<h2>Dinner?</h2>
 								<div class="form-group">
 									<label for="sel1">Select Cuisine:</label>
-									<select class="form-control" id="sel1">
+									<select class="form-control" name="singleSelect1" id="singleSelect1" ng-model="selectedDinner" ng-change="getDinnerCuisine()" >
 										<option>American</option>
 										<option>Chinese</option>
 										<option>Indian</option>
@@ -210,7 +211,5 @@
 		<script src="assets/js/util.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="assets/js/main.js"></script>
-		<script src="assets/js/googleplaces.js"></script>
-		<script src="assets/js/maps.js"></script>
 	</body>
 </html>
