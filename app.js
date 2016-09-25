@@ -5,7 +5,6 @@ var cfenv = require('cfenv');
 var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
-var ejs=require("ejs");
 var Yelp = require('yelp');
 var yelp = new Yelp({
   consumer_key: '3x6Ac1eOjZ5FCU1J9m5hAA',
@@ -17,19 +16,9 @@ var yelp = new Yelp({
 //setup the server paths
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/views');
-app.engine('html', ejs.renderFile);
-app.use( bodyParser.json() );
-
-var yelp = new Yelp({
-  consumer_key: '3x6Ac1eOjZ5FCU1J9m5hAA',
-  consumer_secret: 'yxNlks3UMm1ivqa_zyX9S8eXtmE',
-  token: 'ytPheD8u7xVecoVv3DeJ-iwQa4LiubaG',
-  token_secret: 'VfI-hbolHUSFQmQ5IoNTpy8tYdI',
-});
+app.use(bodyParser.json());
 
 //declare variables
-
 
 //start the server
 app.listen(8082, '0.0.0.0', function() {
@@ -37,7 +26,7 @@ app.listen(8082, '0.0.0.0', function() {
 });
 
 app.get('/yelpSearch', function(req, res) {
-   
+
     var location=req.query.location!=undefined?req.query.location:'McCallum blvd,dallas,texas';
     var type=req.query.type!=undefined?req.query.type:'food';
     yelp.search({ term: type, location: location })
@@ -51,7 +40,7 @@ app.get('/yelpSearch', function(req, res) {
 });
 
 app.get('/googleSearch', function(req, res) {
-   
+
     var location=req.query.location!=undefined?req.query.location:'Atlanta';
     var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query=places+of+interest+in+"+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
     request(url, function (error, response, body) {
@@ -65,7 +54,7 @@ app.get('/getListOfAtms', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
     var lat=req.query.lat!=undefined?req.query.lat:'38.9283';
     var lng=req.query.lng!=undefined?req.query.lng:'-77.1753';
-    
+
     var url="http://api.reimaginebanking.com/atms?lat="+lat+"&lng="+lng+"&rad=1&key=2dda58a2b24190db59957e4804090953";
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -79,7 +68,7 @@ app.get('/getListOfUsers', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
     var lat=req.query.lat!=undefined?req.query.lat:38.9283;
     var lng=req.query.lng!=undefined?req.query.lng:-77.1753;
-    var output=generateRandomPoints({'lat':lat, 'lng':lng}, 1000, 100); 
+    var output=generateRandomPoints({'lat':lat, 'lng':lng}, 1000, 100);
     res.send(output);
     res.end();
 });
@@ -118,7 +107,7 @@ app.post('/transferAmount',function(req,res){
       "payee_id": "string",
       "amount": 0.01,
       "transaction_date": "2016-09-24",
-      "description": "string"
+      "description": "transaction"
     };
     body.payee_id=requestBody.payee;
     body.amount=requestBody.amount;
@@ -126,7 +115,7 @@ app.post('/transferAmount',function(req,res){
     var query="http://api.reimaginebanking.com/accounts/";
     request('http://www.google.com',{body:body}, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        console.log(body) // Show the HTML for the Google homepage. 
+        console.log(body) // Show the HTML for the Google homepage.
       }
     })
 
