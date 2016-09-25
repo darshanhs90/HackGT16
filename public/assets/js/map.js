@@ -2,7 +2,7 @@ var directionDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 
-function initialize() {
+function mapinitialize() {
     directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true
     });
@@ -81,4 +81,4 @@ function createMarker(latlng) {
     });
 }
 
-initialize();
+mapinitialize();
