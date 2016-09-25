@@ -1,174 +1,216 @@
 <!DOCTYPE HTML>
 <html ng-app="myApp">
-<head>
-	<title>LetsWanderNessie</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-</head>
-<body class="landing" ng-controller="myCtrl">
+	<head>
+		<title>LetsWanderNessie</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="assets/css/ie8.css" />
+		<![endif]-->
+		<!--[if lte IE 9]>
+		<link rel="stylesheet" href="assets/css/ie9.css" />
+		<![endif]-->
+	</head>
+	<body class="landing" ng-controller="myCtrl">
 		<div id="page-wrapper">
-
 			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2><a href="#">LetsWanderNessie</a></h2>
-							<p>Let me plan you a surprise!</p>
-							<p><input id="autocomplete" ng-change="getPlace()" ng-model="dest" placeholder="Enter Destination" type="text"></input></p>
-						</header>
-						<span class="image"><img src="images/nessie.png" alt="" /></span>
-					</div>
-					<a href="#one" class="goto-next scrolly">Next</a>
-				</section>
-
+			<section id="banner">
+				<div class="content">
+					<header>
+						<h2><a href="#">LetsWanderNessie</a></h2>
+						<p>Let me plan you a surprise!</p>
+						<p><input id="autocomplete" ng-change="getPlace()" ng-model="dest" placeholder="Enter Destination" type="text"></input></p>
+					</header>
+					<span class="image"><img src="images/nessie.png" alt="" /></span>
+				</div>
+				<a href="#one" class="goto-next scrolly">Next</a>
+			</section>
 			<!-- One -->
-				<section id="one" class="spotlight style1 bottom">
-					<span class="image fit main"><img src="images/bg1.png" alt="" /></span>
-					<div class="content">
-						<div class="container">
-							<div class="row">
-								<div class="12u$ 12u$(medium)">
-									<!-- Signup Form -->
-									<form id="signup-form" method="post" action="#">
-
-									</form>
-								</div>
+			<section id="one" class="style1 special fade-up">
+				<div class="content">
+					<header>
+						<h2>What type of adventure you want to go on?</h2>
+					</header>
+					<div class="container">
+						<div class="row uniform">
+							<div class="6u 6u(medium)">
+								<h2>Something Fun?</h2>
+								<table class="table table-striped">
+									<tr ng-repeat="f in fields">
+										<th><span class="image"></span>{{ f }}</th>
+									</tr>
+								</table>
+								<a href="#two" class="goto-next scrolly">Next</a>
 							</div>
+							<div class="6u 6u(medium)">
+								<h2>Something Historic?</h2>
+								<table class="table table-striped">
+									<tr ng-repeat="f in fields">
+										<th><span class="image"></span>{{ f }}</th>
+									</tr>
+								</table>
+							</div>
+							<a href="#two" class="goto-next scrolly">Next</a>
 						</div>
 					</div>
-					<a href="#two" class="goto-next scrolly">Next</a>
-				</section>
-
+				</div>
+			</section>
 			<!-- Two -->
-				<section id="two" class="spotlight style2 right">
-					<span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Interdum amet non magna accumsan</h2>
-							<p>Nunc commodo accumsan eget id nisi eu col volutpat magna</p>
-						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</section>
-
-			<!-- Three -->
-				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Interdum felis blandit praesent sed augue</h2>
-							<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
-						</header>
-						<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
-						<ul class="actions">
-							<li><a href="#" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#four" class="goto-next scrolly">Next</a>
-				</section>
-
-			<!-- Four -->
-				<section id="four" class="wrapper style1 special fade-up">
+			<section id="two" class="spotlight style1 bottom">
+				<div class="content">
 					<div class="container">
-						<header class="major">
-							<h2>Accumsan sed tempus adipiscing blandit</h2>
-							<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
-						</header>
-						<div class="box alt">
-							<div class="row uniform">
-								<section class="4u 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-area-chart"></span>
-									<h3>Ipsum sed commodo</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-comment"></span>
-									<h3>Eleifend lorem ornare</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u$ 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-flask"></span>
-									<h3>Cubilia cep lobortis</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-paper-plane"></span>
-									<h3>Non semper interdum</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u 6u(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-file"></span>
-									<h3>Odio laoreet accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="4u$ 6u$(medium) 12u$(xsmall)">
-									<span class="icon alt major fa-lock"></span>
-									<h3>Massa arcu accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
+						<div class="row uniform">
+							<div class="6u 6u(medium)">
+								<h2>Lunch?</h2>
+								<div class="form-group">
+									<label for="sel1">Select Cuisine:</label>
+									<select class="form-control" id="sel1">
+										<option>American</option>
+										<option>Chinese</option>
+										<option>Indian</option>
+										<option>Mexican</option>
+									</select>
+								</div>
+								<br>
+								<table class="table table-striped">
+									<tr ng-repeat="f in fields">
+										<th><span class="image"></span>{{ f }}</th>
+									</tr>
+								</table>
+								<a href="#two" class="goto-next scrolly">Next</a>
 							</div>
+							<div class="6u 6u(medium)">
+								<h2>Dinner?</h2>
+								<div class="form-group">
+									<label for="sel1">Select Cuisine:</label>
+									<select class="form-control" id="sel1">
+										<option>American</option>
+										<option>Chinese</option>
+										<option>Indian</option>
+										<option>Mexican</option>
+									</select>
+								</div>
+								<br>
+								<table class="table table-striped">
+									<tr ng-repeat="f in fields">
+										<th><span class="image"></span>{{ f }}</th>
+									</tr>
+								</table>
+							</div>
+							<a href="#two" class="goto-next scrolly">Next</a>
 						</div>
-						<footer class="major">
-							<ul class="actions">
-								<li><a href="#" class="button">Magna sed feugiat</a></li>
-							</ul>
-						</footer>
 					</div>
-				</section>
-
+				</div>
+				<a href="#three" class="goto-next scrolly">Next</a>
+			</section>
+			<!-- Three -->
+			<section id="three" class="spotlight style3 left">
+				<div id="map-canvas"></div>
+				<div class="content">
+					<header>
+						<h2>Interdum felis blandit praesent sed augue</h2>
+						<p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+					</header>
+					<p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+					<ul class="actions">
+						<li><a href="#" class="button">Learn More</a></li>
+					</ul>
+				</div>
+				<a href="#four" class="goto-next scrolly">Next</a>
+			</section>
+			<!-- Four -->
+			<section id="four" class="wrapper style1 special fade-up">
+				<div class="container">
+					<header class="major">
+						<h2>Accumsan sed tempus adipiscing blandit</h2>
+						<p>Iaculis ac volutpat vis non enim gravida nisi faucibus posuere arcu consequat</p>
+					</header>
+					<div class="box alt">
+						<div class="row uniform">
+							<section class="4u 6u(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-area-chart"></span>
+								<h3>Ipsum sed commodo</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+							<section class="4u 6u$(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-comment"></span>
+								<h3>Eleifend lorem ornare</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+							<section class="4u$ 6u(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-flask"></span>
+								<h3>Cubilia cep lobortis</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+							<section class="4u 6u$(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-paper-plane"></span>
+								<h3>Non semper interdum</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+							<section class="4u 6u(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-file"></span>
+								<h3>Odio laoreet accumsan</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+							<section class="4u$ 6u$(medium) 12u$(xsmall)">
+								<span class="icon alt major fa-lock"></span>
+								<h3>Massa arcu accumsan</h3>
+								<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+							</section>
+						</div>
+					</div>
+					<footer class="major">
+						<ul class="actions">
+							<li><a href="#" class="button">Magna sed feugiat</a></li>
+						</ul>
+					</footer>
+				</div>
+			</section>
 			<!-- Five -->
-				<section id="five" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<h2>Magna faucibus lorem diam</h2>
-							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
-						</header>
-						<form method="post" action="#" class="container 50%">
-							<div class="row uniform 50%">
-								<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
-							</div>
-						</form>
-					</div>
-				</section>
-
+			<section id="five" class="wrapper style2 special fade">
+				<div class="container">
+					<header>
+						<h2>Magna faucibus lorem diam</h2>
+						<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
+					</header>
+					<form method="post" action="#" class="container 50%">
+						<div class="row uniform 50%">
+							<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+							<div class="4u$ 12u$(xsmall)"><input type="submit" value="Get Started" class="fit special" /></div>
+						</div>
+					</form>
+				</div>
+			</section>
 			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
 		</div>
-
 		<!-- Scripts -->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/googleplaces.js"></script>
-
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/googleplaces.js"></script>
+		<script src="assets/js/maps.js"></script>
 	</body>
 </html>
