@@ -114,7 +114,7 @@ $scope.paytab=false;
 	        icon:icn,
 	        map: map
 	    });
-	    if(value==1)
+	    if(value==2)
 	        google.maps.event.addListener(marker, 'click', (function (marker, i) {
 	            return function () {
 
