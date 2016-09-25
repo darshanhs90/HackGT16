@@ -1,6 +1,7 @@
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http) {
 
+$scope.paytab=false;
 	var placeSearch, autocomplete;
 	$scope.mainPlace='';
 	//search part
@@ -133,6 +134,7 @@ app.controller('myCtrl',function($scope,$http) {
         console.log(lng);
     }
     $scope.getCash=function(){
+    	$scope.paytab=!$scope.paytab;
     	$http.get('/getListOfAtms?lat='+lat+'&lng='+lng).success(function(data, status) {
 			$scope.atmList=data.data;
 			console.log(data);
@@ -150,6 +152,7 @@ function qrgen(){
 	}
 	qrgen();
 
+var value;
     //capital one stats
 	$scope.bal=0,$scope.rew=0,$scope.trcount=0;
 	$scope.getBalRew=function() {
@@ -164,5 +167,13 @@ function qrgen(){
 			console.log(data.length);
 			$scope.trcount=(data).length;
 		});
+	}
+
+	$scope.transfer=function(){
+		console.log($scope.amount);
+		$http.post('/transferAmount',{payee:'57e6fcacdbd83557146125a7',amount:$scope.amount}).success(function(data,status) {
+			console.log(data);
+			$scope.paytab=!$scope.paytab;
+		})
 	}
 });

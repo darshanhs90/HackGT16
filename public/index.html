@@ -57,7 +57,9 @@
 									
 								</div>
 							</div>
-							<br>
+							<ul class="actions">
+								<li><a href="#two" class="button">Next</a></li>
+							</ul>
 						</div>
 					</section>
 					<!-- Two -->
@@ -122,7 +124,7 @@
 						<div class="content">
 							<div id="map-canvas" style="top:10px;left:570px;width:1160px;height:740px;position:absolute;margin:5 auto;"></div>
 							
-							<h1>Capitol One Transaction Coupon</h1>
+							<h1>Capital One Transaction Coupon</h1>
     
 							<div id="qrcode"></div>
 							<br>
@@ -137,6 +139,12 @@
 								<li><a href="" ng-click="getCash()" class="button">Get Cash?</a></li>
 							</ul>
 							
+							<p ng-show="paytab"><label for="payment">Money Owed:</label><input id="payment"  ng-model="amount" placeholder="Enter amount owed" type="text"></input>
+								<ul class="actions">
+									<li><a href="" ng-click="transfer()" class="button">Pay</a></li>
+								</ul>
+							</p>
+
 						</div>
 						<a href="#four" class="goto-next scrolly">Summary</a>
 					</section>

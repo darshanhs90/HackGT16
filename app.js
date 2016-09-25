@@ -135,13 +135,14 @@ app.post('/transferAmount',function(req,res){
     };
     body.payee_id=requestBody.payee;
     body.amount=requestBody.amount;
-    var mainCustomerId="57e6e4ccdbd8355714612575";
-    var query="http://api.reimaginebanking.com/accounts/";
-    request('http://www.google.com',{body:body}, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-        console.log(body) // Show the HTML for the Google homepage.
+    
+    var url = "http://api.reimaginebanking.com/accounts/57e701dbdbd83557146125af/transfers?key=2e12934b7e25393f8ec1387a4f90fd5e";
+    request.post(url,{form:{_id:"57e701dbdbd83557146125af",body:body}}, function (error, response, body) {
+      if (!error && response.statusCode == 201) {
+        res.send(body);
+        res.end();
       }
-    })
+    });
 
 
 })
