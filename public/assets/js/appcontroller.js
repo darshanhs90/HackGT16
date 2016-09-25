@@ -1,5 +1,6 @@
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http) {
+
 	var placeSearch, autocomplete;
 	$scope.mainPlace='';
 	//search part
@@ -128,5 +129,6 @@ app.controller('myCtrl',function($scope,$http) {
 			console.log(data);
 	    });
 	}
+
 
 });
