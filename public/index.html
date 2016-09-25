@@ -99,18 +99,22 @@
 											</select>
 										</div>
 										<br>
-									<ul ng-repeat="f in dinnerPlaces|limitTo:3">
+									<ul ng-repeat="f in dinnerPlaces |limitTo:3">
 									 	<label class="btn active">
+
 									        <input type="radio" name='dinner'>
+
 									        <i class="fa fa-circle-o fa-2x"></i>
 									        <i class="fa fa-dot-circle-o fa-2x"></i>
-									        <span>{{f.name}}</span>
+									        <span >{{f.name}}</span>
 									    </label>
 	        						</ul>
 									</div>
 								</div>
 							<ul class="actions">
-								<li><a href="#three" ng-click="getFood()" class="button">Finish!</a></li>
+
+								<li><a href="#three" class="button" ng-click="generateMap()">Finish!</a></li>
+
 							</ul>
 							</div>
 						</div>
@@ -185,5 +189,7 @@
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
 				<script src="assets/js/appcontroller.js"></script>
 				<script src="assets/js/qrcode.min.js"></script>
+				<script src="assets/js/map-icons.js"></script>
+				
 			</body>
 		</html>

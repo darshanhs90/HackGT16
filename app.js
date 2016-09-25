@@ -44,7 +44,7 @@ app.get('/googleSearch', function(req, res) {
     var location=req.query.location!=undefined?req.query.location:'Atlanta';
     var type=req.query.type!=undefined?req.query.type:'1';
     type=(type=='1')?'Fun':'Historic';
-    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+" places of interest in "+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
+    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+" places of interest in "+location+"&key=AIzaSyCV6pvi0YuSxPsTS6PFDSsbAXfUuVDr3ZI";
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         console.log(body);
@@ -57,7 +57,8 @@ app.get('/getListOfAtms', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
     var lat=req.query.lat;
     var lng=req.query.lng;
-
+    lat=39.3565224;
+    lng=-76.7029996;
     var url="http://api.reimaginebanking.com/atms?lat="+lat+"&lng="+lng+"&rad=1&key=2dda58a2b24190db59957e4804090953";
     console.log(url);
     request(url, function (error, response, body) {
