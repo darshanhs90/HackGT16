@@ -117,36 +117,18 @@
 							</div>
 						</div>
 					</section>
-					<!-- Three -->
-			<!-- 		<section id="three" class="spotlight style3 left">
-						<div class="fit main bottom">
-							<div id="map-canvas" style="height:100px;width:100px;"></div>
-						</div>
-						<div class="content">
-							<header>
-								<h2>Your Current Route Map</h2>						
-							</header>
-							<div id="qrcode"></div>
-							<div id="customer"></div>
-							<ul class="actions">
-								<li><a href="" ng-click="" class="button">Change restuarants?</a></li>
-							</ul>
-
-							<ul class="actions">
-								<li><a href="" ng-click="" class="button">Get Cash?</a></li>
-							</ul>
-							
-						</div>
-						<a href="#four" class="goto-next scrolly">Summary</a>
-					</section> -->
+					
 					<section id="three" class="spotlight style3 left">
 						<div class="content">
-							<div id="map-canvas" style="top:10px;left:495px;width:850px;height:600px;position:absolute;margin:5 auto;"></div>
-							<header>
-								<h2>Your Current Route Map</h2>						
-							</header>
+							<div id="map-canvas" style="top:10px;left:570px;width:1160px;height:740px;position:absolute;margin:5 auto;"></div>
+							
+							<h1>Capitol One Transaction Coupon</h1>
+    
 							<div id="qrcode"></div>
-							<div id="customer"></div>
+							<br>
+							<header>
+								<h1>Route Map</h1>						
+							</header>
 							<ul class="actions">
 								<li><a href="" ng-click="" class="button">Change restaurants?</a></li>
 							</ul>
@@ -163,24 +145,21 @@
 						<div class="container">
 							<header class="major">
 								<h2>Summary</h2>
-								<p>Hope you have a fun trip</p>
+								<p>Hope you have a wonderful trip</p>
 							</header>
 							<div class="box alt">
 								<div class="row uniform">
-									<section class="4u 6u(medium) 12u$(xsmall)">
-										<span class="icon alt major fa-area-chart"></span>
-										<h3>Balance</h3>
-										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+									<section ng-click="getBalRew()" class="4u 6u$(medium) 12u$(xsmall)">
+										<span class="icon alt major fa-comment"><h3>Get Balance</h3></span>
+										<p>{{bal}}</p>
 									</section>
-									<section class="4u 6u$(medium) 12u$(xsmall)">
-										<span class="icon alt major fa-comment"></span>
-										<h3>Rewards</h3>
-										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+									<section ng-click="getBalRew()" class="4u 6u$(medium) 12u$(xsmall)">
+										<span class="icon alt major fa-comment"><h3>Get Rewards</h3></span>
+										<p>{{rew}}</p>
 									</section>
-									<section class="4u$ 6u(medium) 12u$(xsmall)">
-										<span class="icon alt major fa-flask"></span>
-										<h3>Friends</h3>
-										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+									<section ng-click="getTrs()" class="4u$ 6u(medium) 12u$(xsmall)">
+										<span  class="icon alt major fa-flask"><h3>Get Transactions</h3></span>
+										<p>{{trcount}}</p>	
 									</section>
 									
 								</div>
@@ -188,25 +167,10 @@
 						</div>
 					</section>
 					
-					<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled. All rights reserved.</li>
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
 				</div>
 				<!-- Scripts -->
 
-				<script src="assets/js/jquery.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
 				<script src="assets/js/jquery.scrolly.min.js"></script>
 				<script src="assets/js/jquery.dropotron.min.js"></script>
 				<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -216,5 +180,6 @@
 				<script src="assets/js/main.js"></script>
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
 				<script src="assets/js/appcontroller.js"></script>
+				<script src="assets/js/qrcode.min.js"></script>
 			</body>
 		</html>
