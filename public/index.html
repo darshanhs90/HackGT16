@@ -17,7 +17,7 @@
 						<div class="content">
 							<header>
 								<h2><a href="#">LetsWanderNessie</a></h2>
-								<p>Let me plan you a surprise!</p>
+								<p>Let me plan you a surprise{{checkedValue}}!</p>
 								<p><input id="autocomplete" ng-change="getPlace()" ng-model="dest" placeholder="Enter Destination" type="text"></input></p>
 							</header>
 							<span class="image"><img src="images/nessie.png" alt="" /></span>
@@ -99,12 +99,12 @@
 											</select>
 										</div>
 										<br>
-									<ul ng-repeat="f in dinnerPlaces|limitTo:3">
+									<ul ng-repeat="f in dinnerPlaces |limitTo:3">
 									 	<label class="btn active">
-									        <input type="radio" name='dinner' checked>
+									        <input type="radio" name='dinner' checked ng-click="getCkecked()">
 									        <i class="fa fa-circle-o fa-2x"></i>
 									        <i class="fa fa-dot-circle-o fa-2x"></i>
-									        <span>{{f.name}}</span>
+									        <span >{{f.name}}</span>
 									    </label>
 	        						</ul>
 									</div>
@@ -112,7 +112,7 @@
 									</ul>
 								</div>
 							<ul class="actions">
-								<li><a href="#three" class="button">Finish!</a></li>
+								<li><a href="#three" class="button" ng-click="generateMap()">Finish!</a></li>
 							</ul>
 							</div>
 						</div>
@@ -122,7 +122,7 @@
 						<div class="content">
 							<div id="map-canvas" style="top:10px;left:570px;width:1160px;height:740px;position:absolute;margin:5 auto;"></div>
 							
-							<h1>Capitol One Transaction Coupon</h1>
+							<h1>Capital One Transaction Coupon</h1>
     
 							<div id="qrcode"></div>
 							<br>
@@ -181,5 +181,7 @@
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
 				<script src="assets/js/appcontroller.js"></script>
 				<script src="assets/js/qrcode.min.js"></script>
+				<script src="assets/js/map-icons.js"></script>
+				
 			</body>
 		</html>
