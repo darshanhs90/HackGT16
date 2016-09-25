@@ -119,17 +119,15 @@
 					</section>
 					<!-- Three -->
 					<section id="three" class="spotlight style3 left">
-						<div id="map-canvas"></div>
+						<div id="fit main right">
+							<div id="map-canvas"></div>
+						</div>
 						<div class="content">
 							<header>
-								<h1>Capitol One Transaction Coupon</h1>						
+								<h2>Your Current Route Map</h2>						
 							</header>
 							<div id="qrcode"></div>
-							<br>
-							<header>
-								<h1>Route Map</h1>						
-							</header>
-							
+							<div id="customer"></div>
 							<ul class="actions">
 								<li><a href="" ng-click="" class="button">Change restuarants?</a></li>
 							</ul>
@@ -146,24 +144,24 @@
 						<div class="container">
 							<header class="major">
 								<h2>Summary</h2>
-								<p>Hope you have a wonderful trip</p>
+								<p>Hope you have a fun trip</p>
 							</header>
 							<div class="box alt">
 								<div class="row uniform">
-									<section ng-click="getBalRew()" class="4u 6u(medium) 12u$(xsmall)">
-										<span class="icon alt major fa-area-chart"><h3>Get Balance</h3></span>
-										
-										<p>{{bal}}</p>	
+									<section class="4u 6u(medium) 12u$(xsmall)">
+										<span class="icon alt major fa-area-chart"></span>
+										<h3>Balance</h3>
+										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
 									</section>
-									<section ng-click="getBalRew()" class="4u 6u$(medium) 12u$(xsmall)">
-										<span class="icon alt major fa-comment"><h3>Get Rewards</h3></span>
-										
-										<p>{{rew}}</p>
+									<section class="4u 6u$(medium) 12u$(xsmall)">
+										<span class="icon alt major fa-comment"></span>
+										<h3>Rewards</h3>
+										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
 									</section>
 									<section class="4u$ 6u(medium) 12u$(xsmall)">
-										<span ng-click="getTrs()" class="icon alt major fa-flask"><h3>Get Transactions</h3></span>
-										
-										<p>{{trcount}}</p>	
+										<span class="icon alt major fa-flask"></span>
+										<h3>Friends</h3>
+										<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
 									</section>
 									
 								</div>
@@ -171,10 +169,25 @@
 						</div>
 					</section>
 					
+					<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled. All rights reserved.</li>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
 				</div>
 				<!-- Scripts -->
 
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/js/jquery.scrolly.min.js"></script>
 				<script src="assets/js/jquery.dropotron.min.js"></script>
 				<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -183,7 +196,6 @@
 				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 				<script src="assets/js/main.js"></script>
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
-				<script src="assets/js/qrcode.min.js"></script>
 				<script src="assets/js/appcontroller.js"></script>
 			</body>
 		</html>
