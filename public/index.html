@@ -36,8 +36,8 @@
 								<div class="row uniform">
 									<div class="6u 6u(medium)">								
 										<table class="table table-striped">
-											<tr ng-repeat="f in fields">
-												<th><span class="image"></span>{{ f }}</th>
+											<tr ng-repeat="f in funPlaces |limitTo:3">
+												<th><span class="image"></span>{{ f.name }}</th>
 											</tr>
 										</table>
 										<ul class="actions">
@@ -46,8 +46,8 @@
 									</div>
 									<div class="6u 6u(medium)">
 										<table class="table table-striped">
-											<tr ng-repeat="f in fields">
-												<th><span class="image"></span>{{ f }}</th>
+											<tr ng-repeat="f in historicPlaces|limitTo:3">
+												<th><span class="image" ng-src=""></span>{{ f.name }}</th>
 											</tr>
 										</table>
 										<ul class="actions">
@@ -78,9 +78,9 @@
 											</select>
 										</div>
 										<br>
-										<ul ng-repeat="f in fields">
+										<ul ng-repeat="f in lunchPlaces|limitTo:3">
 											<label class="btn active">
-											          <input type="radio" name='lunch' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f}}</span>
+											          <input type="radio" name='lunch' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f.name}}</span>
 											</label>
 										</ul>
 										<ul class="actions">
@@ -99,12 +99,12 @@
 											</select>
 										</div>
 										<br>
-									<ul ng-repeat="f in fields">
+									<ul ng-repeat="f in dinnerPlaces|limitTo:3">
 									 	<label class="btn active">
 									        <input type="radio" name='dinner' checked>
 									        <i class="fa fa-circle-o fa-2x"></i>
 									        <i class="fa fa-dot-circle-o fa-2x"></i>
-									        <span>{{f}}</span>
+									        <span>{{f.name}}</span>
 									    </label>
 	        						</ul>
 									</div>

@@ -28,7 +28,6 @@ app.controller('myCtrl',function($scope,$http) {
 	        zoom: 3,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP,
 	    }
-	    console.log(document.getElementById("map-canvas"));
 	    map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 	    directionsDisplay.setMap(map);
 	    calcRoute();
@@ -100,27 +99,29 @@ app.controller('myCtrl',function($scope,$http) {
 	//get places
 	$scope.funPlaces=[],$scope.historicPlaces=[];
 	$scope.getPlaces=function(val){
-		console.log(val);
 		$http.get('/googleSearch?type='+val+'&location='+$scope.mainPlace).success(function(data, status) {
-			console.log(data);
-			if(val=='1')
+			if(val=='1'){
 				$scope.funPlaces=data;
-			else
+			}
+			else{
 				$scope.historicPlaces=data;
+			}
 	    });
 	}
 	//get cuisine
 	$scope.selected='';
+	$scope.lunchPlaces=[],$scope.dinnerPlaces=[];
 	$scope.getLunchCuisine=function(){
 		var type=($scope.selectedLunch);
 		$http.get('/yelpSearch?location='+$scope.mainPlace+'&type='+type).success(function(data, status) {
-			console.log(data);
+			$scope.lunchPlaces=(data);
 	    });
 	}
 	$scope.getDinnerCuisine=function(){
 		var type=($scope.selectedDinner);
 		$http.get('/yelpSearch?location='+$scope.mainPlace+'&type='+type).success(function(data, status) {
-			console.log(data);
+			$scope.dinnerPlaces=(data);
 	    });
 	}
+
 });

@@ -44,10 +44,11 @@ app.get('/googleSearch', function(req, res) {
     var location=req.query.location!=undefined?req.query.location:'Atlanta';
     var type=req.query.type!=undefined?req.query.type:'1';
     type=(type=='1')?'Fun':'Historic';
-    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+"places+of+interest+in+"+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
+    var url="https://maps.googleapis.com/maps/api/place/textsearch/json?query="+type+" places of interest in "+location+"&key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ";
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        res.send(body.results);
+        console.log(body);
+        res.send(JSON.parse(body).results);
         res.end();
       }
     })
@@ -126,3 +127,5 @@ app.post('/transferAmount',function(req,res){
 
 })
 //google maps https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU&key=AIzaSyDlBRNWsTKZK81VHB_CZG8mWsnDeYJCEH8
+
+
