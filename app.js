@@ -103,6 +103,24 @@ function generateRandomPoints(center, radius, count) {
   return points;
 }
 
+app.get('/capitalBalRew', function(req, res) {
+   var url="http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e";
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+        res.end();
+      }
+    })
+});
+app.get('/capitalTrs', function(req, res) {
+    var url="http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e";
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+        res.end();
+      }
+    })
+});
 
 
 app.post('/transferAmount',function(req,res){

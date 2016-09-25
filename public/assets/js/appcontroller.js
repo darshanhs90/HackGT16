@@ -142,4 +142,25 @@ app.controller('myCtrl',function($scope,$http) {
 			console.log(data);
 	    });
     }
+
+function qrgen(){
+		new QRCode(document.getElementById("qrcode"), "http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e");
+	}
+	qrgen();
+
+    //capital one stats
+	$scope.bal=0,$scope.rew=0,$scope.trcount=0;
+	$scope.getBalRew=function() {
+		$http.get('/capitalBalRew').success(function(data,status) {
+			$scope.bal =data[0].balance;
+			$scope.rew=data[0].rewards;
+			console.log(data);
+		});
+	}
+	$scope.getTrs=function() {
+		$http.get('/capitalTrs').success(function(data,status) {
+			console.log(data.length);
+			$scope.trcount=(data).length;
+		});
+	}
 });
