@@ -70,12 +70,13 @@ app.get('/getListOfAtms', function(req, res) {
 
 app.get('/getListOfUsers', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
-    var lat=req.query.lat!=undefined?req.query.lat:'38.9283';
-    var lng=req.query.lng!=undefined?req.query.lng:'-77.1753';
+    var lat=req.query.lat!=undefined?parseFloat(req.query.lat):38.9283;
+    var lng=req.query.lng!=undefined?parseFloat(req.query.lng):-77.1753;
     var output=generateRandomPoints({'lat':lat, 'lng':lng}, 1000, 100);
     res.send(output);
     res.end();
 });
+
 function generateRandomPoint(center, radius) {
   var x0 = center.lng;
   var y0 = center.lat;

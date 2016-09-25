@@ -138,8 +138,10 @@ app.controller('myCtrl',function($scope,$http) {
 			console.log(data);
 	    });
     	$http.get('/getListOfUsers?lat='+lat+'&lng='+lng).success(function(data, status) {
-			$scope.usersList=data.data;
-			console.log(data);
+			$scope.usersList=data;
+			for (var i = data.length - 1; i >= 0; i--) {
+				createMarker(new google.maps.LatLng(data[i].lat, data[i].lng));
+			};
 	    });
     }
 });
