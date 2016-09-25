@@ -171,9 +171,14 @@ var value;
 
 	$scope.transfer=function(){
 		console.log($scope.amount);
-		$http.post('/transferAmount',{payee:'57e6fcacdbd83557146125a7',amount:$scope.amount}).success(function(data,status) {
+		$http.post('/transferAmount',{payee:'57e6fcacdbd83557146125a7',amount:$scope.amount}).then(function(data,status) {
 			console.log(data);
 			$scope.paytab=!$scope.paytab;
 		})
+	}
+
+	$scope.getFood=function (argument) {
+		$scope.getLunchCuisine();
+		$scope.getDinnerCuisine();
 	}
 });

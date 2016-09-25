@@ -82,12 +82,10 @@
 										<br>
 										<ul ng-repeat="f in lunchPlaces|limitTo:3">
 											<label class="btn active">
-											          <input type="radio" name='lunch' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f.name}}</span>
+											          <input type="radio" name='lunch'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f.name}}</span>
 											</label>
 										</ul>
-										<ul class="actions">
-											
-										</ul>
+
 									</div>
 									<div class="6u 6u(medium)">
 										<h2>Dinner?</h2>
@@ -103,18 +101,16 @@
 										<br>
 									<ul ng-repeat="f in dinnerPlaces|limitTo:3">
 									 	<label class="btn active">
-									        <input type="radio" name='dinner' checked>
+									        <input type="radio" name='dinner'>
 									        <i class="fa fa-circle-o fa-2x"></i>
 									        <i class="fa fa-dot-circle-o fa-2x"></i>
 									        <span>{{f.name}}</span>
 									    </label>
 	        						</ul>
 									</div>
-									<ul class="actions">
-									</ul>
 								</div>
 							<ul class="actions">
-								<li><a href="#three" class="button">Finish!</a></li>
+								<li><a href="#three" ng-click="getFood()" class="button">Finish!</a></li>
 							</ul>
 							</div>
 						</div>

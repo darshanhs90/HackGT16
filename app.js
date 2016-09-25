@@ -129,23 +129,31 @@ app.post('/transferAmount',function(req,res){
     var body={
       "medium": "balance",
       "payee_id": "string",
-      "amount": 0.01,
-      "transaction_date": "2016-09-24",
-      "description": "transaction"
+      "amount": 0.01
     };
     body.payee_id=requestBody.payee;
     body.amount=requestBody.amount;
-    
+    console.log(body);
     var url = "http://api.reimaginebanking.com/accounts/57e701dbdbd83557146125af/transfers?key=2e12934b7e25393f8ec1387a4f90fd5e";
-    request.post(url,{form:{_id:"57e701dbdbd83557146125af",body:body}}, function (error, response, body) {
-      if (!error && response.statusCode == 201) {
-        res.send(body);
-        res.end();
-      }
-    });
 
+    request({
+    url: url,
+    id: '57e701dbdbd83557146125af',
+    method: 'POST',
+    //Lets post the following key/values as form
+    json: {
+        medium:"balance",
+        payee_id:requestBody.payee,
+        amount:parseFloat(requestBody.amount)
+    }
+}, function(error, response, body){
+    if(error) {
+        console.log(error);
+    } else {
+        console.log(response.statusCode, body);
+}
+});
 
-})
-//google maps https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU&key=AIzaSyDlBRNWsTKZK81VHB_CZG8mWsnDeYJCEH8
+});//google maps https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CnRtAAAATLZNl354RwP_9UKbQ_5Psy40texXePv4oAlgP4qNEkdIrkyse7rPXYGd9D_Uj1rVsQdWT4oRz4QrYAJNpFX7rzqqMlZw2h2E2y5IKMUZ7ouD_SlcHxYq1yL4KbKUv3qtWgTK0A6QbGh87GB3sscrHRIQiG2RrmU_jF4tENr9wGS_YxoUSSDrYjWmrNfeEHSGSc3FyhNLlBU&key=AIzaSyDlBRNWsTKZK81VHB_CZG8mWsnDeYJCEH8
 
 
