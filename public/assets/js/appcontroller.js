@@ -110,7 +110,7 @@ app.controller('myCtrl',function($scope,$http) {
 	}
 	//get cuisine
 	$scope.selected='';
-	$scope.lunchPlaces=[],$scope.dinnerPlaces=[];
+	$scope.lunchPlaces=[],$scope.dinnerPlaces=[],$scope.usersList=[],$scope.atmList=[];
 	$scope.getLunchCuisine=function(){
 		var type=($scope.selectedLunch);
 		$http.get('/yelpSearch?location='+$scope.mainPlace+'&type='+type).success(function(data, status) {
@@ -123,5 +123,23 @@ app.controller('myCtrl',function($scope,$http) {
 			$scope.dinnerPlaces=(data);
 	    });
 	}
-
+	navigator.geolocation.getCurrentPosition(success);
+	var lat,lng;
+	function success(position)
+    {
+		lng=(position.coords.longitude);
+        lat=(position.coords.latitude);
+        console.log(lat);
+        console.log(lng);
+    }
+    $scope.getCash=function(){
+    	$http.get('/getListOfAtms?lat='+lat+'&lng='+lng).success(function(data, status) {
+			$scope.atmList=data.data;
+			console.log(data);
+	    });
+    	$http.get('/getListOfUsers?lat='+lat+'&lng='+lng).success(function(data, status) {
+			$scope.usersList=data.data;
+			console.log(data);
+	    });
+    }
 });
