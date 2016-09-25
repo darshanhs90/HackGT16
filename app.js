@@ -67,7 +67,24 @@ app.get('/getListOfAtms', function(req, res) {
       }
     })
 });
-
+app.get('/capitalBalRew', function(req, res) {
+   var url="http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e";
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+        res.end();
+      }
+    })
+});
+app.get('/capitalTrs', function(req, res) {
+    var url="http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e";
+    request(url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        res.send(body);
+        res.end();
+      }
+    })
+});
 app.get('/getListOfUsers', function(req, res) {
    //http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key=2dda58a2b24190db59957e4804090953
     var lat=req.query.lat!=undefined?req.query.lat:38.9283;

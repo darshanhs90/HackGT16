@@ -15,6 +15,12 @@ app.controller('myCtrl',function($scope,$http) {
 	    });
 	}
 	initialize();
+
+	function qrgen(){
+		new QRCode(document.getElementById("qrcode"), "http://api.reimaginebanking.com/customers/57e701abdbd83557146125ad/accounts?key=2e12934b7e25393f8ec1387a4f90fd5e");
+	}
+	qrgen();
+
 	//maps part
 	var directionDisplay;
 	var directionsService = new google.maps.DirectionsService();
@@ -122,6 +128,22 @@ app.controller('myCtrl',function($scope,$http) {
 		$http.get('/yelpSearch?location='+$scope.mainPlace+'&type='+type).success(function(data, status) {
 			$scope.dinnerPlaces=(data);
 	    });
+	}
+
+	//capital one stats
+	$scope.bal=0,$scope.rew=0,$scope.trcount=0;
+	$scope.getBalRew=function() {
+		$http.get('/capitalBalRew').success(function(data,status) {
+			$scope.bal =data[0].balance;
+			$scope.rew=data[0].rewards;
+			console.log(data);
+		});
+	}
+	$scope.getTrs=function() {
+		$http.get('/capitalTrs').success(function(data,status) {
+			console.log(data.length);
+			$scope.trcount=(data).length;
+		});
 	}
 
 });
