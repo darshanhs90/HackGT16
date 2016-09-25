@@ -7,17 +7,8 @@
 				<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 				<link rel="stylesheet" href="assets/css/main.css" />
 				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-<script src="assets/js/appcontroller.js"></script>
-				
-				<script src="assets/js/googleplaces.js"></script>
-				<script src="assets/js/map.js"></script>
-				
-				<!--[if lte IE 8]>
-				<link rel="stylesheet" href="assets/css/ie8.css" />
-				<![endif]-->
-				<!--[if lte IE 9]>
-				<link rel="stylesheet" href="assets/css/ie9.css" />
-				<![endif]-->
+
+
 			</head>
 			<body class="landing" ng-controller="myCtrl">
 				<div id="page-wrapper">
@@ -50,7 +41,7 @@
 											</tr>
 										</table>
 										<ul class="actions">
-								<li><a href="#two" class="button">Fun!</a></li>
+								<li ng-click="getPlaces('1')"><a class="button" ng-click="getPlaces('1')">Fun!</a></li>
 							</ul>
 									</div>
 									<div class="6u 6u(medium)">
@@ -60,7 +51,7 @@
 											</tr>
 										</table>
 										<ul class="actions">
-								<li><a href="#two" class="button">Historic!</a></li>
+								<li ng-click="getPlaces('2')"><a class="button" >Historic!</a></li>
 							</ul>
 									</div>
 									
@@ -87,14 +78,14 @@
 											</select>
 										</div>
 										<br>
-												<ul ng-repeat="f in fields">
-	 <label class="btn active">
-	          <input type="radio" name='lunch' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f}}</span>
-	        </label>
-	        </ul>
+										<ul ng-repeat="f in fields">
+											<label class="btn active">
+											          <input type="radio" name='lunch' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f}}</span>
+											</label>
+										</ul>
 										<ul class="actions">
-								
-							</ul>
+											
+										</ul>
 									</div>
 									<div class="6u 6u(medium)">
 										<h2>Dinner?</h2>
@@ -108,27 +99,29 @@
 											</select>
 										</div>
 										<br>
-											<ul ng-repeat="f in fields">
-	 <label class="btn active">
-	          <input type="radio" name='dinner' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  {{f}}</span>
-	        </label>
-	        </ul>
+									<ul ng-repeat="f in fields">
+									 	<label class="btn active">
+									        <input type="radio" name='dinner' checked>
+									        <i class="fa fa-circle-o fa-2x"></i>
+									        <i class="fa fa-dot-circle-o fa-2x"></i>
+									        <span>{{f}}</span>
+									    </label>
+	        						</ul>
 									</div>
 									<ul class="actions">
-								
-							</ul>
+									</ul>
 								</div>
 							<ul class="actions">
 								<li><a href="#three" class="button">Finish!</a></li>
 							</ul>
 							</div>
-
 						</div>
-						
 					</section>
 					<!-- Three -->
 					<section id="three" class="spotlight style3 left">
-						<div id="map-canvas fit main right"></div>
+						<div id="fit main right">
+							<div id="map-canvas"></div>
+						</div>
 						<div class="content">
 							<header>
 								<h2>Your Current Route Map</h2>						
@@ -193,7 +186,7 @@
 					</footer>
 				</div>
 				<!-- Scripts -->
-				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
+
 				<script src="assets/js/jquery.min.js"></script>
 				<script src="assets/js/jquery.scrolly.min.js"></script>
 				<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -202,6 +195,7 @@
 				<script src="assets/js/util.js"></script>
 				<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 				<script src="assets/js/main.js"></script>
-				
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7puJZ01KdcVVBHQA1iVDIaH4EtuFSqQ&libraries=places"></script>
+				<script src="assets/js/appcontroller.js"></script>
 			</body>
 		</html>

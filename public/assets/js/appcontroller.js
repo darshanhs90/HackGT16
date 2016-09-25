@@ -5,7 +5,6 @@ app.controller('myCtrl',function($scope,$http) {
 	$scope.mainPlace='';
 	//search part
 	function initialize() {
-
 	    autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {
 	        types: ['(regions)']
 	    });
@@ -15,14 +14,11 @@ app.controller('myCtrl',function($scope,$http) {
 	        $scope.mainPlace=place.formatted_address;
 	    });
 	}
-
 	initialize();
-
 	//maps part
 	var directionDisplay;
 	var directionsService = new google.maps.DirectionsService();
 	var map;
-
 	function initializeMaps() {
 	    directionsDisplay = new google.maps.DirectionsRenderer({
 	        suppressMarkers: true
@@ -32,12 +28,11 @@ app.controller('myCtrl',function($scope,$http) {
 	        zoom: 3,
 	        mapTypeId: google.maps.MapTypeId.ROADMAP,
 	    }
-
+	    console.log(document.getElementById("map-canvas"));
 	    map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 	    directionsDisplay.setMap(map);
 	    calcRoute();
 	}
-
 	function calcRoute() {
 
 	    var waypts = [];
@@ -93,7 +88,6 @@ app.controller('myCtrl',function($scope,$http) {
 	        }
 	    });
 	}
-
 	function createMarker(latlng) {
 	    
 	    var marker = new google.maps.Marker({
@@ -101,14 +95,14 @@ app.controller('myCtrl',function($scope,$http) {
 	        map: map
 	    });
 	}
-
 	initializeMaps();
-
 	//api call part
 	//get places
 	$scope.funPlaces=[],$scope.historicPlaces=[];
 	$scope.getPlaces=function(val){
+		console.log(val);
 		$http.get('/googleSearch?type='+val+'&location='+$scope.mainPlace).success(function(data, status) {
+			console.log(data);
 			if(val=='1')
 				$scope.funPlaces=data;
 			else
@@ -129,6 +123,4 @@ app.controller('myCtrl',function($scope,$http) {
 			console.log(data);
 	    });
 	}
-
-
 });
